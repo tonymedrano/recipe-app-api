@@ -52,3 +52,15 @@ docker-compose build
 ```shell script
 docker-compose run app sh -c "django-admin.py startproject app ."
 ```
+
+#### Create and add .travis.yml script
+```shell script
+language: python
+python:
+  - "3.6"
+services:
+  - docker
+before_script: pip install docker-compose
+
+script:
+  - docker-compose run app sh -c "python manage.py test && flake8"```
