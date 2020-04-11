@@ -1,5 +1,6 @@
-# recipe-app-api
-Recipe app api source code
+
+# Recipe App rest api
+using Django rest framework, pyCharm, docker, flake, travis ci
 
 #### Install
 ```shell script
