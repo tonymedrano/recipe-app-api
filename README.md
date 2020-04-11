@@ -65,3 +65,28 @@ before_script: pip install docker-compose
 script:
   - docker-compose run app sh -c "python manage.py test && flake8"
 ```
+
+#### Create .flake8 script
+```shell script
+[flake8]
+exclude =
+  migrations
+  __pycache__,
+  manage.py,
+  settings.py
+```
+
+#### Create new app named core
+```shell script
+docker-compose run app sh -c "python manage.py startapp core"
+```
+
+#### Make migrations
+```shell script
+docker-compose run app sh -c "python manage.py makemigrations"
+```
+
+#### Migrate
+```shell script
+docker-compose run app sh -c "python manage.py migrate"
+```
