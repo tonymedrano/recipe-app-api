@@ -189,11 +189,13 @@ services:
     volumes:
       - ./app:/app
     command: >
-    ------- REPLACE or ADD daatabase to be executed too --------------
+--------------- REPLACE THIS --------------
+sh -c "python manage.py runserver 0.0.0.0:8000"    
+--------------- WITH THIS ------------------
 sh -c "python manage.py wait_for_db &&
       python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8000"    ------- WITH THIS --------------
-      sh -c "python manage.py wait_for_db && python manage.py runserver 0.0.0.0:8000"
+      python manage.py runserver 0.0.0.0:8000"
+-----------------------------------------------
     environment:
       - DB_HOST=db
       - DB_NAME=app
