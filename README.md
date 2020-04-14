@@ -216,3 +216,25 @@ sh -c "python manage.py wait_for_db &&
 ```shell script
 docker-compose up
 ```
+
+### Create admin/superuser (email-password)
+```shell script
+docker-compose run app sh -c "python manage.py createsuperuser"
+```
+
+### Start new app named user
+```shell script
+docker-compose run app sh -c "python manage.py startapp user"
+```
+
+### Register django rest_frameworks and apps
+ (app/app/settings.py)
+```shell script
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    'rest_framework.authtoken',
+    'core',
+    'user',
+]
+```
